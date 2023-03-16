@@ -1,0 +1,56 @@
+<div class="modal" id="_svsModal" ng-show="showModal" >
+				<div class="modal-dialog modal-dialog-centered modal-lg">
+					<div class="modal-content">
+
+
+					<div class="modal-header">
+						<h4 class="modal-title">SVS Products</h4>&nbsp;<span> (SKU: {{SKU}})</span>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" ng-click="closeModal()"></button>
+					</div>
+
+						
+					<div class="modal-body">
+						
+					<table class="table table-responsive _svsProductTable">
+						<thead>
+							<tr>
+								
+								<th>Supplier Code</th>
+								<th>Warehouse</th>
+								<th>Stock</th>
+							</tr>
+						</thead>
+						<tbody class="_svsProductRows p-2">
+							<tr class="p-2">
+								<!-- THIS CODE WILL BE REVISE -->
+								<td>{{HAMISupplierCode}}</td> 
+								<td>{{HAMIWarehouse}}</td>
+								<td>{{HAMIStock}}</td> 
+							</tr>
+							<tr class="p-2">
+								<!-- THIS CODE WILL BE REVISE -->
+								<td>{{PNTHSupplierCode}}</td> 
+								<td>{{PNTHWarehouse}}</td>
+								<td>{{PNTHStock}}</td> 
+							</tr>
+							<tr class="p-2">
+								<!-- THIS CODE WILL BE REVISE -->
+								<td>{{CHCHSupplierCode}}</td> 
+								<td>{{CHCHWarehouse}}</td>
+								<td>{{CHCHStock}}</td> 
+							</tr>
+						</tbody>
+					</table>
+
+					</div>
+
+
+					<div class="modal-footer">
+					<!-- <button type="button" class="btn btn-danger btn-sm _removeTaxes">Remove Taxes</button>
+				 -->	<button type="button" class="btn btn-secondary btn-sm _applyTaxRate" data-bs-dismiss="modal" ng-click="closeModal()">Close</button>
+						
+					</div>
+
+					</div>
+				</div>
+			</div> 

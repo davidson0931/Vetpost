@@ -1,0 +1,48 @@
+<div class="modal" id="_svsCancelProductModal" ng-show="showCancelProductModal" >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Cancel Order</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" ng-click="closeCancelProductModal()"></button>
+            </div>
+        <div class="modal-body">
+            <div style="text-align: center;">
+                <span>
+                    <i class="bi bi-exclamation-triangle-fill" 
+                    style="color: #dd3646;
+                    font-size: 75px;"></i>
+                </span>
+                <h4>You're going to cancel this "{{orderData.id}}"<br> Order, Are you sure?</h4>
+            </div>
+        </div>
+        <div class="modal-footer" style="border-top: 0px;">
+            <div style="width: 100%; text-align: center; padding: 15px;">
+                <span style="
+                padding: 10px 15px;
+                border-radius: 5px;
+                background: #b3b3b3;
+                color: black;
+                font-size: 15px;
+                display: inline;
+                width: 32px;
+                cursor: pointer;            
+            " ng-click="closeCancelProductModal()">No, Keep it</span>
+                                            
+        	<span style="
+                padding: 10px 20px;
+                border-radius: 5px;
+                background: #dd3646;
+                color: white;
+                font-size: 15px;
+                display: inline;
+                width: 32px;
+                cursor: pointer;
+            " ng-click="cancelOrder(orderData.id)"><i class="bi bi-x"></i>Yes, Cancel Order!</span>
+            </div>
+
+            
+        </div>
+
+        </div>
+    </div>
+</div> 

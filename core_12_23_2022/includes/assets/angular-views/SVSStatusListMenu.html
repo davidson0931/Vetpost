@@ -1,0 +1,49 @@
+<ul style="display: inline-flex; padding-left: 0 !important; margin-bottom: 0 !important;">
+    <li>
+        <a href="#all_orders" ng-click="statusAll()">ALL ({{OrdersItemsCount.statusAll}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.onHold == 0">
+        <a href="#all_orders" ng-click="statuslist('on-hold')">On Hold
+            ({{OrdersItemsCount.onHold}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.readySend == 0">
+        <a href="#all_orders" ng-click="statuslist('ready-send')">Ready to Send
+            ({{OrdersItemsCount.readySend}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.partial == 0">
+        <a href="#all_orders" ng-click="statuslist('partial')">Partial
+            ({{OrdersItemsCount.partial}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.pending == 0">
+        <a href="#all_orders" ng-click="statuslist('pending')">Pending
+            ({{OrdersItemsCount.pending}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.processing == 0">
+        <a href="#all_orders" ng-click="statuslist('processing')">Processing
+            ({{OrdersItemsCount.processing}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.completed == 0">
+        <a href="#all_orders" ng-click="statuslist('completed')">Completed
+            ({{OrdersItemsCount.completed}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.refunded == 0">
+        <a href="#all_orders" ng-click="statuslist('refunded')">Refunded
+            ({{OrdersItemsCount.refunded}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.svsCandidates == 0">
+        <a href="#all_orders" ng-click="statuslist('svs-candidates')">SVS Candidates
+            ({{OrdersItemsCount.svsCandidates}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.svsProcessing == 0">
+        <a href="#all_orders" ng-click="statuslist('svs-processing')">SVS Processing
+            ({{OrdersItemsCount.svsProcessing}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.removed == 0">
+        <a href="#all_orders" ng-click="statuslist('cancelled')">Removed
+            ({{OrdersItemsCount.removed}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.error == 0">
+        <a href="#all_orders" ng-click="statuslist('failed')">Errors
+            ({{OrdersItemsCount.error}})</a>
+    </li>
+</ul>

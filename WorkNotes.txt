@@ -1,0 +1,234 @@
+Dec (1 - 2) 2022
+Report
+WordPress VestPost Website  
+-- Added Meta for Products
+-- Added Weight for API
+-- Display Weight to vetpost list
+-- Fetch data of SVS product details
+
+Dec (3 - 6) 2022
+
+WordPress VestPost Website
+-- Added Metafields for Products
+-- Added cURL function SVS API
+-- Added Metafields for Products (Stock Branch)
+-- Migrate work on loclahost cause of error limit in server ndomain
+-- Fetch the  SVS stock product supplier by iterated IDs of product
+-- On fetching supplier ID fetch SOH of HAMI , PNTH, CHCH by iterated IDs of product
+-- Save the details of SOH as json to product by branch_PNTH , branch_HAMI , branch_CHCH
+
+
+Dec (7) 2022
+-- Save Hami , PNTH , CHCH to product by SKU
+-- Migrate the plugin and API to the staging https://wordpress-817197-2885733.cloudwaysapps.com
+- Change those URL request to staging for new data migration
+-- Fix the issue of total and all total nulled
+-- Created a function that will fetch SVG Stock DATA
+-- Able to display Branch Stock Information
+-- Able to display SKU
+-- Bug (When Supplier Code doesn't have a data, it doesn't display DATA. But it will store DATA when exsiting Data was Displayed)
+
+Dec (8) 2022
+
+WordPress VestPost Website
+
+-- Removed Refresh button from the table
+-- Added Refresh button right side of the Bulk Action
+-- Added Send Product Modal
+-- Able to update data when refresh table clicked
+-- Able to display SVS Products
+-- When No Data to display SVS Product display N/A
+
+
+Dec (9) 2022
+
+WordPress VetPost Website
+
+-- Created a function that will fetch branch data
+-- Able to fetch branch data
+-- Validation of Branch Data (In-progress)
+-- Change SVS Stock Color when branch stock has sufficient stock(In-progress)
+
+
+Dec (10 - 12) 2022
+-- Migrate the plugin and API to staging https://wordpress-817197-3094960.cloudwaysapps.com
+-- Change URL request for new data migration
+-- SVG Stocks Validation Change Color (In-progress)
+-- Bugs(
+	-- Unable to fetch all Order Data.
+	-- Unable to use Pagination.) 
+
+
+Dec (12) 2022
+-- Fix Bugs
+-- Pagination Working
+-- Able to Validate Branch Stock(Changing Color depends on Stock Qty.)
+-- Product Item Count Menu List (In-progress)
+-- Optimize Script(Reduce load data)
+-- Fixed Consumer Name (First Name & last Name)
+
+
+Dec (13) 2022
+-- Fixed Product Menu Count
+	-- Bug("Errors" (Connection Time Out))
+-- Hide Order Details (Company Address, Address, Costumer note)
+-- Added Show Details Button
+	-- Able to Display Order Details
+-- SVG Stock Validation (Done)
+-- SVS Send Product(In-progress)
+
+
+Dec (15) 2022
+
+-- SVG Stock Validation
+	-Stock is null/empty Color Gray
+	-Stock is 0 Color Red
+	-Stock is 10 Color yellow
+	-Stock is Above 10 Stock is green. 
+-- Remove Stock Check
+	-- Move Stock Check to top table
+-- Add Status on the Table
+-- Fixing the Status of Error
+-- Fixing table structure (For better UI/UX)
+-- Creating a function for Send Now and Cancel Order
+
+
+
+Dec (16) 2022
+
+WordPress VetPost Website Plugin
+-- SVG Stock Validation (Done)
+	-Stock is null/empty Color Gray
+	-Stock is 0 Color Red
+	-Stock is 10 Color yellow
+	-Stock is Above 10 Stock is green. 
+-- Remove Stock Check (Done)
+	-- Move Stock Check to top table
+-- Add Status on the Table (Done)
+-- Fixing table structure (For better UI/UX) (Done)
+-- Able to populate data on Send Now Modal
+-- Able to fetch data for Send Now Modal
+-- Able to Validate of Stock Warehouse on Send Now Modal
+-- Able to show item  by categories
+-- Added Refresh button function on Send Now Modal
+
+
+Dec (17) 2022
+
+-- Product Send Order Function
+-- Cancel Order Function
+-- Will be adding Status data in datatable
+-- Fixing Product Count Error
+-- Fixing Refresh function for Send Product Function
+-- Improving UI/UX of Datatable
+
+
+
+Dec (19) 2022
+-- Product Send Order Function(Done)
+-- Fixing Status Data (Done)
+-- Fixing Datatable (Done)
+-- Show Orders Count for datatable (Done)
+-- Cancel Order Modal (Done)
+-- Creating CRON for Send Order Function(Done)
+
+
+
+Dec (20) 2022
+-- Cancel Order Function
+	-- Able to Cancel Order (Change Status Order)
+	-- Actions will be removed as Status Change
+-- Added Success Alert
+	-- Send Now Order
+	-- Cancel Order
+-- Fixed Cancel Order Modal
+
+
+
+Dec (21) 2022
+-- Fetched Category Data
+-- Able to Display Category Data
+-- If order has one VP product data Remove Action
+-- If order has all VP product Remove Action
+-- Migrating files local to Staging
+- Fix the issue of addson that not including other addson even categories existing
+- Restore order update API request
+- Refix the code of outdated API code of localhost from staging
+- Update the file of staging plugin
+- Checking how to fetch the Invoice of order
+
+
+Dec (22) 2022
+-- Display parent categories like Dog , Cats , Horse , Bird etc
+	-- Added Color Background
+	-- Changed Text Color
+	-- Improved Design
+-- Slightly Changes for Colors in Status
+-- Fixed the issue of showing action If all item is not vp sku item
+
+
+Dec (23) 2022
+-- Fixed Categories unable to fetch some data due to duplicate value
+-- Fixed Pagination Input
+-- Added Validation for Send Now function
+	-- Will Show Success Message after you agreed to send the orders
+-- Migrated Local files to Staging
+
+Dec (27) 2022
+-- Test development ins staging for CRON
+-- Migrate to another server the developement from ml to cloudways server for None CRON limit 
+-- Debugging CRON of Force udpate not working
+-- Improve the loading time of CRON and limit to 200 access item per page product update
+
+
+Jan (2) 2023
+- Create a Video Demo of system
+	Force Update
+	1. How to force update the product vetpost "Hand of stock" that from SVS details.
+	2. How to force send to SVS all order record with status of "Ready to send".
+
+	Vetpost/SVS order send management
+	1. How to filter by status the order of vetpost list and refresh data
+	2. How to search order in vetpost list
+	3. How to chnage the current paged on the list of pagination.
+	4. Where I can check the status of order
+	5. How do I know the "Hand of Stock" of SVS product for (HAMI , PNTH and CHCH)
+	6. What is color red ,yellow , green and gray in (H , P , S) symbol for SVG Stock
+	7. How can I cancel the order.
+	8. How to process the send order.
+	9. How to select additional treats before send the order to SVS.
+	10. How to refresh the current data of send order.
+
+Jan (3 - 4) 2023
+- Change configuration of plugin for new server
+
+
+Jan (17 - 19) 2023
+- Demo for development
+- Check how to do the tracking number in API 
+- Check the GET Invoice if possible to work the complete status
+- Check the shipment tracking how do it work
+
+
+Jan (20) 2023
+- Work on the tracking function and implement to the development
+- Use the invoice to check the order and fetch the CustomerOrderId
+- Create a function for CRON of invoice checker order
+- Request action for invoice checker with button force check tracking number
+- Analyzing how to implement the gattered invoice data to tracking number
+
+
+Jan (23) 2023
+- Fix the data of modal not working in SVS Stock 
+- Change the data id passing parameter for as Order Number
+- Fix the issue of Send order modal not accurate details
+- Fix One product is eligible, but one product isn't. meaning would not send 
+- Revert the menu list status from old list
+
+Jan (24) 2023
+- Fix the product vaiarable not Appear details
+- Create new function for force update of Stock of product variable from HAMI,PNTH,CHCH 
+- Display data of product variable and enable to send order when has stock
+
+Jan (26) 2023
+- Fix the issue of tracking not working in recuresive item of tracking response

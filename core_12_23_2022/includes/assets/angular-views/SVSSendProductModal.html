@@ -1,0 +1,135 @@
+<div class="modal" id="_svsSendProductModal" ng-show="showSendProductModal" >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+
+
+        <div class="modal-header">
+            <h4 class="modal-title">Send Order</h4>&nbsp;<span> (Order No: {{orderData.id}})</span>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" ng-click="closeSendProductModal()"></button>
+        </div>
+
+            <!--  {{orderData}} -->
+        <div class="modal-body">
+        <div style="display: inline-grid">
+            <span style="font-weight: bold;">Select Warehouse</span>
+			<select ng-model="selectedBranch" ng-options="x.abbreviation for x in branches" > </select>
+        </div>
+		
+            
+        <table class="table table-responsive _svsProductTable">
+            <thead>
+                <tr>
+                    <th style="width: 50px;">Select</th>
+                    <th>SKU</th>
+                    <th>Product</th>
+                    <th>SVG Stock</th>
+                </tr>
+            </thead>
+            <tbody ng-show="modalTbody" class="_svsProductRows p-2">
+			
+			
+			<tr  ng-repeat="n in orderData.line_items  track by $index" ng-class="{'AddsOnProduct': n.addsOn === true}">
+				<td style="text-align: center;"><input ng-model="n.isSelected" type="checkbox" 
+				ng-disabled="(!n.addsOn || n.isDisable)"
+				ng-checked="(!n.addsOn || n.isSelected)"
+				></td>
+				<td>
+					{{n.sku}}
+				</td>
+				<td>
+					{{n.name}}
+				</td>
+				 <td>
+				 
+				 
+					<span ng-repeat="branch in branches track by $index" 
+					ng-style="
+					n[branch.metaKey].SOH == 0 && {'background':'#cf6763'} ||
+					n[branch.metaKey].SOH > 10 && {'background':'#5bb176'} || 
+					n[branch.metaKey].SOH == null && {'background':'#c3c4c8'} || 
+					n[branch.metaKey].SOH > 0 && {'background':'#eebe40'}"
+					
+					style="
+						padding: 3px 7px;
+						border-radius: 26px;
+						background: #c3c4c7 !important;
+						color: white;
+						font-size: 11px;
+						display: inline;
+						cursor: pointer;
+					">
+						{{branch.symbol}}
+						<!-- {{n[branch.metaKey].SOH}} -->
+					</span>
+					
+					
+				</td>
+			</tr>
+            </tbody>
+            <tbody ng-show="modalLoader">
+                <tr>
+                    <td colspan="12">
+                        <div class="loader-container" style="padding: 50px 0px;">
+                            <div class="loader" id="loader" ng-show="modalLoader">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <p style="margin: 0px">
+				<span style="font-weight: bold;">Company Name:</span> 
+				{{orderData.shipping.company}}
+			</p>
+        </div>
+        <div>
+            <p style="margin: 0px">
+
+			<span style="font-weight: bold;">Shipping Address:</span> 
+			{{orderData.shipping.address_1}}, {{orderData.shipping.city}}, {{orderData.shipping.state}} {{orderData.shipping.postcode}}
+			</p>
+        </div>
+        <div>
+            <p style="margin: 0px"><span style="font-weight: bold;">Customer Note:</span> {{orderData.customer_note}}</p>
+        </div>
+
+        </div>
+        <div class="modal-footer">
+            <div style="text-align: justify;">
+                <p><span style="font-weight: bold;">Note:</span> The order you are sending to SVS contains one or more products that are out of stock at the <u>{{selectedBranch.city}}
+                    warehouse</u>. If you want the order to be dispatched from a diffrent warehouse with sufficient stock you should contact
+                    Brett at SVS to request this. Please click Confirm if you want to proceed, or Cancel to return to the order.
+                </p>
+            </div>
+            <div style="width: 100%; text-align: center; padding: 15px;">
+                <span style="
+                padding: 7px 15px;
+                border-radius: 5px;
+                background: #5b99ea;
+                color: white;
+                font-size: 15px;
+                display: inline;
+                width: 32px;
+                cursor: pointer;            
+            " ng-click="refreshSendOrder(orderData.id)"><i class="bi bi-arrow-repeat"></i>Refresh</span>
+                                            
+        	<span style="
+                padding: 7px 50px;
+                border-radius: 5px;
+                background: #eebf41;
+                color: black;
+                font-size: 15px;
+                display: inline;
+                width: 32px;
+                cursor: pointer;
+            " ng-click="sendOrder(orderData.id)"><i class="bi bi-send-fill"></i>Send Now</span>
+            </div>
+
+            
+        </div>
+
+        </div>
+    </div>
+</div> 

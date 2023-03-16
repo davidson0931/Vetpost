@@ -1,0 +1,37 @@
+<ul class="pagination pagination-sm mb-0 justify-content-end">
+
+	<li class="page-item firstPage" id="firstPage" ng-hide="leftPageHide()"
+		ng-click="firstPage()">
+		<a class="page-link">
+			<i class="fa-solid fa-angles-left"></i> </a>
+	</li>
+	<li class="page-item" id="previousPage" ng-hide="leftPageHide()"
+		ng-click="previousPage()">
+		<a class="page-link">
+			<i class="fa-solid fa-angle-left"></i></a>
+	</li>
+	<li class="page-item" style="padding: 0;">
+		<span class="pageNum">
+			{{totalOrders}} Orders
+		</span>
+
+	</li>
+	<li class="page-item active" aria-current="page">
+		<input id="pageNumValue" class="pageSpin" type="number"
+			ng-model="request.page" value="1" ng-change="changePage()"
+			onkeydown="return IsNumeric(event.keyCode)">
+	</li>
+	<li class="page-item"> <span class="pageNum">
+			of {{totalPage}}
+		</span></li>
+	<li class="page-item" ng-hide="rightPageHide()" ng-click="nextPage()">
+		<a class="page-link">
+			<i class="fa-solid fa-angle-right"></i>
+		</a>
+	</li>
+	<li class="page-item" ng-hide="rightPageHide()" ng-click="lastPage()">
+		<a class="page-link">
+			<i class="fa-solid fa-angles-right"></i>
+		</a>
+	</li>
+</ul>

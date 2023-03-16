@@ -1,0 +1,50 @@
+<ul style="display: inline-flex; padding-left: 0 !important; margin-bottom: 0 !important;">
+    <li>
+        <a id="_svsmenu-all" href="#all_orders" ng-click="statusAll()" ng-style="statuslistActive()">ALL ({{OrdersItemsCount.statusAll | number}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.onHold == 0">
+        <a id="_svsmenu-onhold" href="#all_orders" ng-click="statuslist('on-hold')" ng-style="statuslistActive('on-hold')">On Hold
+            ({{OrdersItemsCount.onHold | number}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.readySend == 0" >
+        <a id="_svsmenu-readytosend" href="#all_orders" ng-click="statuslist('ready-send')" ng-style="statuslistActive('ready-send')">Ready to Send
+            ({{OrdersItemsCount.readySend | number}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.partial == 0">
+        <a id="_svsmenu-partial" href="#all_orders" ng-click="statuslist('partial')" ng-style="statuslistActive('partial')">Partial
+            ({{OrdersItemsCount.partial | number}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.pending == 0">
+        <a id="_svsmenu-pending" href="#all_orders" ng-click="statuslist('pending')" ng-style="statuslistActive('pending')">Pending
+            ({{OrdersItemsCount.pending | number}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.processing == 0">
+        <a id="_svsmenu-processing" href="#all_orders" ng-click="statuslist('processing')" ng-style="statuslistActive('processing')">Processing
+            ({{OrdersItemsCount.processing | number}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.completed == 0">
+        <a id="_svsmenu-completed" href="#all_orders" ng-click="statuslist('completed')" ng-style="statuslistActive('completed')">Completed
+            ({{OrdersItemsCount.completed | number}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.refunded == 0">
+        <a id="_svsmenu-refunded" href="#all_orders" ng-click="statuslist('refunded')" ng-style="statuslistActive('refunded')">Refunded
+            ({{OrdersItemsCount.refunded | number}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.svsCandidates == 0">
+        <a id="_svsmenu-svscandidates" href="#all_orders" ng-click="statuslist('svs-candidates')" ng-style="statuslistActive('svs-candidates')">SVS Candidates
+            ({{OrdersItemsCount.svsCandidates | number}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.svsProcessing == 0">
+        <a id="_svsmenu-svsprocessing" href="#all_orders" ng-click="statuslist('svs-processing')" ng-style="statuslistActive('svs-processing')">SVS Processing
+            ({{OrdersItemsCount.svsProcessing | number}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.removed == 0">
+        <a id="_svsmenu-removed" href="#all_orders" ng-click="statuslist('cancelled')" ng-style="statuslistActive('cancelled')">Removed
+            ({{OrdersItemsCount.removed | number}})</a>
+    </li>
+    <li ng-hide="OrdersItemsCount.error == 0">
+        <a id="_svsmenu-errors" href="#all_orders" ng-click="statuslist('failed')" ng-style="statuslistActive('failed')">Errors
+            ({{OrdersItemsCount.error | number}})</a>
+    </li>
+</ul>
+

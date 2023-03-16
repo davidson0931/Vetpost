@@ -1,0 +1,66 @@
+._shippingValue::-webkit-outer-spin-button,
+._shippingValue::-webkit-inner-spin-button,
+#_procductQuantityInput::-webkit-outer-spin-button,
+#_procductQuantityInput::-webkit-inner-spin-button,
+._productQuantity::-webkit-outer-spin-button,
+._productQuantity::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+._shippingValue, #_procductQuantityInput
+{
+    text-align: end;
+}
+
+
+._shippingTitleType {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+._shippingColumn
+{
+    display: flex;
+    flex-direction: row;
+    gap: 4.5rem;
+    padding-left: 1.5rem;
+}
+
+._shippingIcon
+{
+    font-size: 27px;
+}
+._productQuantity
+{
+    width: 2.5rem;
+    padding: 0px 2px 0px 0px;
+    line-height: 0px;
+}
+
+._productTableQuantity
+{
+    display: flex;
+    flex-direction: row;
+}
+
+._productTableTotal
+{
+    display: flex;
+    flex-direction: row;
+    padding: 0.3rem;
+}
+
+._cellContainer
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+._defaultValues
+{
+    color: #c2bdbd;
+    font-weight: 400;
+}

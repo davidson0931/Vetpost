@@ -1,0 +1,233 @@
+<table ng-show="orders[0].id !== 0 || loader"
+                            class="table table-bordered bordered table-striped table-condensed datatable"
+                            ui-jq="dataTable" ui-options="dataTableOpt">
+                            <thead>
+                                <tr>
+                                    <!-- <th style="border-radius: 10px 0px 0px 0px"><input type="checkbox"
+                                            ng-model="selectedAllItem"></th> -->
+                                    <th style="border-radius: 10px 0px 0px 0px; width: 220px;"><span style="margin-left: 10px;">Order</span></th>
+                                    <th>SKU</th>
+                                    <th>Name</th>
+                                    <th>Weight</th>
+                                    <th>Price</th>
+                                    <th>Qty</th>
+                                    <th style="width: 75px;">SVG Stock</th>
+                                    <!-- <th style="width: 80px;">Stock Checked</th> -->
+                                    <th>Total</th>
+                                    <th>Categories</th>
+                                    <th style="width: 75px; border-radius: 0px 10px 0px 0px;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-show="tbody" ng-if="allTotal > 0">
+                                <tr  ng-repeat-start="n in orders  track by $index"
+                                    class="{{$index % 2 == 0 ? 'odd' : 'even'}} entry-data">
+                                    <!-- <td rowspan='{{n.line_items.length == 0 ? 2:(n.line_items.length + 1)}}'><input
+                                            type="checkbox" ng-model="n.is_Selected" ng-checked="selectedAllItem"></td> -->
+                                    <td rowspan='{{n.line_items.length == 0 ? 2:(n.line_items.length + 1)}}'>
+                                        <div style="display: grid; margin-left: 10px;">
+                                            <span class="details_order"><a href="#/">#{{n.number}}
+                                                    {{n.billing.first_name}} {{n.billing.last_name}} </a>
+                                                
+                                                
+                                                    <span class="MORE" ng-style="changeStatusColor(n.status)" style=" 
+                                                    text-decoration: none;
+                                                    background: #5b99ea;
+                                                    border-radius: 5px;
+                                                    color: white;
+                                                    text-align: center;
+                                                    font-size: 10px;
+                                                    width: 75px;
+                                                    padding: 1px 5px;
+                                                    margin: 5px 6px;;"
+                                                 href="#{{n.number}}">{{n.status}}</span>
+                                                </span>
+                                            <span class="date">{{n.date_created}}</span>
+                                            <span class="total">{{n.currency_symbol}}{{n.total}}
+                                            </span>
+                                            <!-- <a class="MORE" style="text-decoration: none; 
+                                                                    background: #5b99ea; 
+                                                                    border-radius: 5px; 
+                                                                    color: white;
+                                                                    text-align: center;
+                                                                    font-size: 10px;
+                                                                    width: 70px; 
+                                                                    padding: 5px 0px;
+                                                                    margin: 5px 0px;"
+                                                                     href="#{{n.number}}">Show Details</a> -->
+
+                                            <div id="{{n.number}}" class="moreInfo">
+                                                <span class="company" style="word-break: break-all;
+                                                width: 300px;"><i class="bi bi-building"></i>Company Address:
+                                                    {{n.billing.company}}</span>
+                                                <span class="shipping" style="word-break: break-all;
+                                                width: 300px;"><i class="bi bi-geo-alt-fill"></i> Shipping Adress:
+                                                    {{n.shipping.address_1}}</span>
+                                                <span class="notes " style="word-break: break-all;
+                                                width: 300px;"><i class="bi bi-journal-check"></i> Customer notes:
+                                                    {{n.customer_note}}</span>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <!-- <tr ng-if="n.line_items.length == 0"
+                                    class="{{$index % 2 == 0 ? 'odd' : 'even'}} product-list">
+                                    <td>
+                                        N/A
+                                    </td>
+                                    <td>
+                                        N/A
+                                    </td>
+                                    <td>
+                                        N/A
+                                    </td>
+                                    <td>
+                                        N/A
+                                    </td>
+                                    <td>
+                                        N/A
+                                    </td>
+                                    <td>
+                                        N/A
+                                    </td>
+                                    <td>
+                                        N/A
+                                    </td>
+                                    <td>
+                                        N/A
+                                    </td>
+
+                                    <td rowspan='1'>
+                                        {{line_item.total}}
+                                    </td>
+                                    <td class="action" rowspan='1'>
+                                        <span ng-click="showModalSVSPRoductOrder(n.number)" style="
+												padding: 4px 9px;
+												border-radius: 5px;
+												background: #eebf41;
+												color: white;
+												font-size: 15px;
+												display: block;
+												width: 32px;
+                                                cursor: pointer;
+											"><i class="bi bi-send-fill"></i></span>
+
+                                        <span ng-click="showModalSVSPRoductOrder(n.number)" style="
+												padding: 4px 9px;
+												border-radius: 5px;
+												background: #dd3646;
+												color: white;
+												font-size: 15px;
+												display: block;
+												width: 32px;
+                                                cursor: pointer;
+											"><i class="bi bi-x"></i></span>
+                                    </td>
+                                </tr> -->
+
+                                <tr ng-if="n.line_items.length != 0" ng-repeat-end
+                                    ng-repeat="line_item in n.line_items track by $index"
+                                    class="{{$parent.$parent.$index % 2 == 0 ? 'odd' : 'even'}} product-list">
+                                    <td>
+                                        {{line_item.sku}}
+                                    </td>
+                                    <td>
+                                        {{line_item.name}}
+                                    </td>
+                                    <td>
+                                        {{line_item.weight}}
+                                    </td>
+                                    <td>
+                                        {{line_item.price}}
+                                    </td>
+                                    <td>
+                                        {{line_item.quantity}}
+                                    </td>
+                                    <td >
+
+                                        <span ng-style="changeHamiColor(line_item.branch_HAMI.SOH)" ng-click="showModalSVSPRoductOrder(n.number, line_item.id, line_item.sku)" style="
+							padding: 3px 7px;
+							border-radius: 26px;
+							background: #5bb176;
+							color: white;
+							font-size: 11px;
+                            display: inline;
+                            cursor: pointer;
+						">H</span>
+
+                                        <span ng-style="changePnthColor(line_item.branch_PNTH.SOH)" ng-click="showModalSVSPRoductOrder(n.number, line_item.id, line_item.sku)" style="
+							padding: 3px 7px;
+							border-radius: 26px;
+							background: #eebe40;
+							color: white;
+							font-size: 11px;
+                            display: inline;
+                            cursor: pointer;
+						">P</span>                         
+                                        <span ng-style="changeChchColor(line_item.branch_CHCH.SOH)" ng-click="showModalSVSPRoductOrder(n.number, line_item.id, line_item.sku)" style="
+							padding: 3px 7px;
+							border-radius: 26px;
+							background: #cf6763;
+							color: white;
+							font-size: 11px;
+                            display: inline;
+                            cursor: pointer;
+						">S</span>
+                                    </td>
+                                    <!-- <td>
+                                        1 Hour
+                                    </td> -->
+                                    <td>
+                                        {{line_item.total}}
+                                    </td>
+                                    <td>
+                                        {{line_item.categories[0]}}
+                                    </td>
+
+                                    <td class="action" ng-if="$index == 0"
+                                        rowspan="{{n.line_items.length == 0 ? 2:(n.line_items.length + 1)}}">
+                                        <span  ng-show="checkOrderList(n.status, n.line_items)" ng-click="showModalSendProduct(n.number)" style="
+												padding: 4px 9px;
+												border-radius: 5px;
+												background: #eebf41;
+												color: black;
+												font-size: 15px;
+												display: inline;
+												width: 32px;
+                                                cursor: pointer;
+											"><i class="bi bi-send-fill"></i></span>
+
+                                        <span ng-show="checkOrderList(n.status, n.line_items)" ng-click="showCancelProductModal(n.number)" style="
+												padding: 4px 9px;
+												border-radius: 5px;
+												background: #dd3646;
+												color: white;
+												font-size: 15px;
+												display: blinlineock;
+												width: 32px;
+                                                cursor: pointer;
+											"><i class="bi bi-x"></i></span>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                            <tbody  ng-show="noData"> <!-- ng-hide="noData" -->
+                                <tr>
+                                    <td colspan="12" style="text-align: center;"><h4 style="margin: 15px 0px;">No data available in table</h4></td>
+                                </tr>
+                            </tbody>
+                            
+                            <tbody ng-show="loader">
+                                <tr>
+                                    <td colspan="12">
+                                        <div class="loader-container" style="padding: 50px 0px;">
+                                            <div class="loader" id="loader" ng-show="loader">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
